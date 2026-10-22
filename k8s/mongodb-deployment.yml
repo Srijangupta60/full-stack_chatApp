@@ -1,5 +1,5 @@
-apiVersion: apps/v1
 kind: Deployment
+apiVersion: apps/v1
 metadata:
   name: mongodb-deployment
   namespace: chat-app
@@ -12,7 +12,7 @@ spec:
     metadata:
       name: mongodb-pod
       namespace: chat-app
-      labels: 
+      labels:
         app: mongodb
     spec:
       containers:
@@ -20,15 +20,13 @@ spec:
         image: mongo:latest
         ports:
         - containerPort: 27017
-        env:
+        env:  
         - name: MONGO_INITDB_ROOT_USERNAME
-          value: mongoadmin
+          value: root
         - name: MONGO_INITDB_ROOT_PASSWORD
-          value: secret
+          value: root
       volumes:
-      - name: mongo-data
+      - name:  mongo-data
         persistentVolumeClaim:
-          claimName: mongodb-pvc   
-
-
-
+          claimName: mongodb-pvc
+        

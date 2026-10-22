@@ -1,11 +1,14 @@
-apiVersion: v1
 kind: Service
+apiVersion: v1
 metadata:
-  name: backend
+  name:  backend
   namespace: chat-app
 spec:
   selector:
-    app: backend
+    app:  backend
+  type: ClusterIP
   ports:
-  - port: 5001
-    targetPort: 5001
+  - name:  backend-tcp-port
+    protocol:  TCP
+    port:  5001
+    targetPort:  5001

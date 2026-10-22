@@ -1,5 +1,5 @@
-apiVersion: apps/v1
 kind: Deployment
+apiVersion: apps/v1
 metadata:
   name: frontend-deployment
   namespace: chat-app
@@ -12,18 +12,14 @@ spec:
     metadata:
       name: frontend-pod
       namespace: chat-app
-      labels: 
+      labels:
         app: frontend
     spec:
       containers:
-      - name: chatapp-frontend
-        image: trainwithshubham/chatapp-frontend
+      - name: chat-app-frontend
+        image: srijandevops/chatapp-frontend:latest
         ports:
         - containerPort: 80
-        env:
+        env:  
         - name: NODE_ENV
-          value: production
-          
-
-
-
+          value: "production"
